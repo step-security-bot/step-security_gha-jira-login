@@ -7,8 +7,7 @@
 
 A Github action that takes access credentials and verifies them again Jira REST API.
 Upon successful login, the credentials are stored locally in `~/jira/config.yml`.
-This behavior is in line with how [atlassian/gajira-login](https://github.com/marketplace/actions/jira-login) 
-works to act as a drop-in replacement.
+
 
 > Atlassian does not maintain its Github actions anymore. This is an issue since they are
 > built with Node v16, which has been marked deprecated by Github and will soon get removed.
@@ -46,5 +45,4 @@ env variables. For the env variable names it will use the same names as Atlassia
 login action does to allow for a drop-in replacement. When both are provided, the 
 input fields take precedence over the env variables.
 
-```
 
