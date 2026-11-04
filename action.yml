@@ -1,0 +1,16 @@
+name: Atlassian Jira Login
+description: Login to Atlassian Jira (Cloud).
+author: "step-security"
+branding:
+  icon: log-in
+  color: black
+inputs:
+  baseUrl:
+    description: The URL of the Jira instance
+  email:
+    description: The email address to use for authentication
+  token:
+    description: The API token to use for authentication
+runs:
+  using: "node24"
+  main: "./dist/index.js"

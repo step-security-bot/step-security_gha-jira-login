@@ -1,0 +1,30 @@
+{
+    "name": "jira-login",
+    "version": "1.0.0",
+    "description": "Logs into Jira and stores the Jira credentials locally",
+    "main": "index.js",
+    "author": "step-security",
+    "license": "MIT",
+    "scripts": {
+        "all": "npm i && npm run format-check && npm run lint && npm run build",
+        "build": "esbuild index.js --outfile=dist/index.js --platform=node --bundle --minify",
+        "format": "prettier \"**/*.{js,json,yml}\" --write",
+        "format-check": "prettier \"**/*.{js,json,yml}\" --check",
+        "lint": "eslint . --ext .js"
+    },
+    "dependencies": {
+        "@actions/core": "^2.0.3",
+        "axios": "^1.15.0",
+        "axios-retry": "^4.5.0",
+        "yaml": "^2.8.3"
+    },
+    "devDependencies": {
+        "esbuild": "^0.28.0",
+        "eslint": "^8.57.0",
+        "prettier": "^3.8.3"
+    },
+    "engines": {
+        "node": ">=24",
+        "npm": ">=11"
+    }
+}
