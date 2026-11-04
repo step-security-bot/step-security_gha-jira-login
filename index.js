@@ -71,6 +71,8 @@ function parseInputs() {
         throw new Error("Access token is required");
     }
 
+    core.setSecret(token);
+
     return {
         baseUrl,
         email,
@@ -113,7 +115,7 @@ function writeCredentialsToDisk(args) {
     const configFile = path.join(jiraDir, "config.yml");
 
     if (!fs.existsSync(jiraDir)) {
-        fs.mkdirSync(jiraDir);
+        fs.mkdirSync(jiraDir, { mode: 0o700 });
     }
 
     const data = {
@@ -122,5 +124,7 @@ function writeCredentialsToDisk(args) {
         token: args.token,
     };
 
-    fs.writeFileSync(configFile, yaml.stringify(data));
+    fs.writeFileSync(configFile, yaml.stringify(data), { mode: 0o600 });
+    // mode is only applied when the file is created, so tighten a pre-existing one too
+    fs.chmodSync(configFile, 0o600);
 }
